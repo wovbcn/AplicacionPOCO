@@ -18,6 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AplicacionPOCO.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AplicacionPOCO.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3B11E998-2B7A-4C69-B880-F622D55B127C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -29,20 +35,20 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -71,15 +77,31 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <ExecutablePath>$(SolutionDir)..\..\poco\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)..\..\poco\Foundation\include;$(SolutionDir)..\..\poco\Util\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\poco\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>$(SolutionDir)..\..\poco\bin64;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)..\..\poco\Foundation\include;$(SolutionDir)..\..\poco\Util\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\poco\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>$(SolutionDir)..\..\poco\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)..\..\poco\Foundation\include;$(SolutionDir)..\..\poco\Util\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\poco\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>$(SolutionDir)..\..\poco\bin64;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)..\..\poco\Foundation\include;$(SolutionDir)..\..\poco\Util\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\..\poco\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -141,8 +163,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
